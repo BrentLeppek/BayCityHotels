@@ -16,30 +16,33 @@
 			</div>
 
 			<div class="row">
-				<h3>Login</h3>
+				<h3>Welcome to Bay City Rooms!</h3>
 			</div>
 
 			<form class="form-horizontal" action="login.php" method="post">
 								  
 				<div class="control-group">
-					<label class="control-label">Username (Email)</label>
 					<div class="controls">
-						<input name="username" type="text"  placeholder="me@email.com" required> 
+						<input name="email" type="text"  placeholder="email" required> 
 					</div>	
 				</div> 
+
 				
 				<div class="control-group">
-					<label class="control-label">Password</label>
 					<div class="controls">
-						<input name="password" type="password"> 
+						<input name="password" type="password" placeholder="password"> 
 					</div>	
 				</div> 
+
+				<br />
 
 				<div class="form-actions">
 					<button type="submit" class="btn btn-success">Sign in</button>
 					&nbsp; &nbsp;
-					<a class="btn btn-primary" href="fr_per_create2.php">Get started today!</a>
+					<a class="btn btn-primary" href="register.php">Join Today!</a>
 				</div>
+
+				<p>Bay City Rooms is a platfrom to view rooms for rent, and provide rooms for rent in the city of Bay City.
 				
 			
 				
