@@ -28,7 +28,7 @@ if ( !empty($_POST)) { // if $_POST filled then process the form
 		$sessionid = $data['id'];
 		$_SESSION['users_lname'] = $data['lname'];
 		Database::disconnect();
-		header("Location: fr_assignments.php?id=$sessionid ");
+		header("Location: home.php?id=$sessionid ");
 		exit();
 	}
 	else { // otherwise go to login error page
