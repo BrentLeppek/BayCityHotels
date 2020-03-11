@@ -37,7 +37,7 @@
 				<br />
 
 				<div class="form-actions">
-					<button type="submit" class="btn btn-success">Sign in</button>
+					<button type="submit" class="btn btn-success">Sign in</button> 
 					&nbsp; &nbsp;
 					<a class="btn btn-primary" href="register.php">Join Today!</a>
 				</div>

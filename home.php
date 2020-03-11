@@ -5,9 +5,19 @@ if(!isset($_SESSION["users_id"])){ // if "user" not set,
 	header('Location: index.php');   // go to login page
 	exit;
 }
+
+require '../database/database.php';
+
 $id = $_GET['id']; // for user
 $sessionid = $_SESSION['users_id'];
 
+$pdo = Database::connect();
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$sql = "SELECT * FROM users WHERE id = ?";
+$q = $pdo->prepare($sql);
+$q->execute(array($id));
+$data = $q->fetch(PDO::FETCH_ASSOC);
+Database::disconnect();
 ?>
 
 <!DOCTYPE html>
@@ -21,5 +31,7 @@ $sessionid = $_SESSION['users_id'];
 <body>
 
     <h1>Welcome <?php echo $fname . " " .  $lname; ?>  </h1>
+
+    <a class="btn btn-primary" href="logout.php">Log Out</a>
 
 </body>
