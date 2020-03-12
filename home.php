@@ -32,6 +32,14 @@ Database::disconnect();
 
     <h1>Welcome <?php echo $fname . " " .  $lname; ?>  </h1>
 
-    <a class="btn btn-primary" href="logout.php">Log Out</a>
+
+    <div class="text-center">
+        <a class="btn btn-success" href="room_create.php">Create Room</a>
+        <a class="btn btn-primary" href="room_view.php">View Rooms</a>
+        <a class="btn btn-info" href="bookings.php">Bookings</a>
+        <a class="btn btn-secondary" href="room_update.php">Update Room</a>
+        <a class="btn btn-light" href="room_delete.php">Delete Room</a>
+        <a class="btn btn-dark" href="logout.php">Log Out</a>
+    </div>        
 
 </body>
