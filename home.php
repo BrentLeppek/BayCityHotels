@@ -30,16 +30,26 @@ Database::disconnect();
 
 <body>
 
-    <h1>Welcome <?php echo $fname . " " .  $lname; ?>  </h1>
+    <?php
+    $pdo = Database::connect();
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "SELECT fname, lname FROM users WHERE id = ?";
+    $q = $pdo->prepare($sql);
+    $q->execute(array($sql));
+    $data = $q->fetch(PDO::FETCH_ASSOC);
+    Database::disconnect();
+    
+    echo "<h1>Welcome " . $fname . " " . $lname . "</h1>";
 
+    ?>
 
     <div class="text-center">
-        <a class="btn btn-success" href="room_create.php">Create Room</a>
-        <a class="btn btn-primary" href="room_view.php">View Rooms</a>
-        <a class="btn btn-info" href="bookings.php">Bookings</a>
-        <a class="btn btn-secondary" href="room_update.php">Update Room</a>
-        <a class="btn btn-light" href="room_delete.php">Delete Room</a>
-        <a class="btn btn-dark" href="logout.php">Log Out</a>
+        <a class="btn btn-success" href="room_create.php">Create Room</a> <br />
+        <a class="btn btn-primary" href="room_view.php">View Rooms</a> <br />
+        <a class="btn btn-info" href="bookings.php">Bookings</a> <br />
+        <a class="btn btn-secondary" href="room_update.php">Update Room</a> <br />
+        <a class="btn btn-light" href="room_delete.php">Delete Room</a> <br />
+        <a class="btn btn-dark" href="logout.php">Log Out</a> <br />
     </div>        
 
 </body>

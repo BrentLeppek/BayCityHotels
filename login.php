@@ -23,7 +23,6 @@ if ( !empty($_POST)) { // if $_POST filled then process the form
 	$data = $q->fetch(PDO::FETCH_ASSOC);
 	
 	if($data) { // if successful login set session variables
-		echo "success!";
 		$_SESSION['users_id'] = $data['id'];
 		$sessionid = $data['id'];
 		$_SESSION['users_lname'] = $data['lname'];
