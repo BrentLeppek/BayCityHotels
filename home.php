@@ -47,8 +47,6 @@ Database::disconnect();
         <a class="btn btn-success" href="room_create.php">Create Room</a> <br />
         <a class="btn btn-primary" href="room_view.php">View Rooms</a> <br />
         <a class="btn btn-info" href="bookings.php">Bookings</a> <br />
-        <a class="btn btn-secondary" href="room_update.php">Update Room</a> <br />
-        <a class="btn btn-light" href="room_delete.php">Delete Room</a> <br />
         <a class="btn btn-dark" href="logout.php">Log Out</a> <br />
     </div>        
 

@@ -18,6 +18,7 @@
                             <th>Phone Number</th>
                             <th>Address</th>
                             <th>Room Capacity</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -30,6 +31,10 @@
                                 echo '<td>'. $row['roomphone'] . '</td>';
                                 echo '<td>'. $row['roomaddress'] . '</td>';
                                 echo '<td>'. $row['roomcapacity'] . '</td>';
+                                echo '<td width=250>';
+                                echo '<a class="btn btn-secondary" href=room_update.php?id='.$row['id'].'">Update</a>';
+                                echo '<a class="btn btn-light" href=room_delete.php?id='.$row['id'].'">Delete</a>';  
+                                echo '</td>';
                                 echo '</tr>';
                             }
                             Database::disconnect();
