@@ -39,7 +39,7 @@ Database::disconnect();
     $data = $q->fetch(PDO::FETCH_ASSOC);
     Database::disconnect();
     
-    echo "<h1>Welcome " . $fname . " " . $lname . "</h1>";
+    //echo "<h1>Welcome " . $fname . " " . $lname . "</h1>";
 
     ?>
 

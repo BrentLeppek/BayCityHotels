@@ -23,13 +23,13 @@
                     <tbody>
                         <?php include '../database/database.php'; 
                             $pdo = Database::connect();
-                            $sql = 'SELECT * FROM rooms ORDER BY name DESC';
+                            $sql = 'SELECT * FROM rooms ORDER BY roomname DESC';
                             foreach($pdo->query($sql) as $row) {
                                 echo '<tr>';
-                                echo '<td>'. $row['name'] . '</td>';
-                                echo '<td>'. $row['phone'] . '</td>';
-                                echo '<td>'. $row['address'] . '</td>';
-                                echo '<td>'. $row['capacity'] . '</td>';
+                                echo '<td>'. $row['roomname'] . '</td>';
+                                echo '<td>'. $row['roomphone'] . '</td>';
+                                echo '<td>'. $row['roomaddress'] . '</td>';
+                                echo '<td>'. $row['roomcapacity'] . '</td>';
                                 echo '</tr>';
                             }
                             Database::disconnect();

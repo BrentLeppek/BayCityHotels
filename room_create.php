@@ -37,11 +37,11 @@ Database::disconnect();
                         <h3>Create a Room to Rent</h3>
                     </div>
              
-                    <form class="form-horizontal" action="room_create.php" method="post">
+                    <form class="form-horizontal" action="operations/insertroom.php" method="post">
                       <div class="control-group <?php echo !empty($nameError)?'error':'';?>">
                         <label class="control-label">Name</label>
                         <div class="controls">
-                            <input name="name" type="text"  placeholder="Name or Description" value="<?php echo !empty($name)?$name:'';?>">
+                            <input name="roomname" type="text"  placeholder="Name or Description" value="<?php echo !empty($name)?$name:'';?>">
                             <?php if (!empty($nameError)): ?>
                                 <span class="help-inline"><?php echo $nameError;?></span>
                             <?php endif; ?>
@@ -50,7 +50,7 @@ Database::disconnect();
                       <div class="control-group <?php echo !empty($phoneError)?'error':'';?>">
                         <label class="control-label">Phone Number</label>
                         <div class="controls">
-                            <input type="tel" id="phone" name="phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br><br> 
+                            <input type="tel" id="phone" name="roomphone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br><br> 
                             <?php if (!empty($emailError)): ?>    
                                 <span class="help-inline"><?php echo $phoneError;?></span>
                             <?php endif;?>
@@ -59,7 +59,7 @@ Database::disconnect();
                       <div class="control-group <?php echo !empty($addressError)?'error':'';?>">
                         <label class="control-label">Address</label>
                         <div class="controls">
-                            <input name="address" type="text"  placeholder="Address" value="<?php echo !empty($address)?$address:'';?>">
+                            <input name="roomaddress" type="text"  placeholder="Address" value="<?php echo !empty($address)?$address:'';?>">
                             <?php if (!empty($addressError)): ?>
                                 <span class="help-inline"><?php echo $addressError;?></span>
                             <?php endif;?>
@@ -68,7 +68,7 @@ Database::disconnect();
                       <div class="control-group <?php echo !empty($capacityError)?'error':'';?>">
                         <label class="control-label">Room Capacity</label>
                         <div class="controls">
-                            <input name="capacity" type="number"  placeholder="Capacity" value="<?php echo !empty($capacity)?$capacity:'';?>">
+                            <input name="roomcapacity" type="number"  placeholder="Capacity" value="<?php echo !empty($capacity)?$capacity:'';?>">
                             <?php if (!empty($capacityError)): ?>
                                 <span class="help-inline"><?php echo $capacityError;?></span>
                             <?php endif;?>
