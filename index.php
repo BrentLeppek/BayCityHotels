@@ -6,20 +6,40 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>    
 </head>
 
-<body>
-    <div class="container">
+<style>
+html {
+    height:100%;
+}
+body {
+  background-image: url('background.png');
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.vertical-center {
+    background-image: url('background.png');
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    vertical-align:middle;
+}
 
-		<div class="span10 offset1">
+.form {}
+</style>
+
+<body class="text-center">
+    <div class="jumbotron vertical-center">
+    <div class="container text-center">
+
 		
-			<div class="row">
 				
-			</div>
 
-			<div class="row">
-				<h3>Welcome to Bay City Rooms!</h3>
-			</div>
-
-			<form class="form-horizontal" action="login.php" method="post">
+			<form class="form-signin" action="login.php" method="post">
 								  
 				<div class="control-group">
 					<div class="controls">
@@ -42,20 +62,14 @@
 					<a class="btn btn-primary" href="register.php">Join Today!</a>
 				</div>
 
-				<p>Bay City Rooms is a platfrom to view rooms for rent, and provide rooms for rent in the city of Bay City.
-				
-			
-				
-				<br />
-			
+				<p>Bay City Rooms is a platfrom to view rooms for rent, and provide rooms for rent in the city of Bay City. </p>
 
 				
 			</form>
-
-
-		</div> <!-- end div: class="span10 offset1" -->
+            
 				
     </div> <!-- end div: class="container" -->
+    </div>
 
   </body>
   
