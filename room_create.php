@@ -39,7 +39,7 @@ Database::disconnect();
              
                     <form class="form-horizontal" action="opinsertroom.php" method="post">
                       <div class="control-group <?php echo !empty($nameError)?'error':'';?>">
-                        <label class="control-label">Name</label>
+                        <label class="control-label">Description</label>
                         <div class="controls">
                             <input name="roomname" type="text"  placeholder="Name or Description" value="<?php echo !empty($name)?$name:'';?>">
                             <?php if (!empty($nameError)): ?>
