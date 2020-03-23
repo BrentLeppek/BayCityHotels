@@ -9,18 +9,18 @@ if(!isset($_SESSION["users_id"])){
 
 require '../database/database.php';
 
-$id = $_GET['id']; // for user
-
 if (!empty($_POST)) {
 
     //initalize input validation
     $roomError = null;
+    $userError = null;
     $checkindateError = null;
     $checkoutdateError = null;
     $priceError = null;
     $travelersError = null;
 
     //$_POST variables
+    $user = $_POST['user'];
     $room = $_POST['room'];
     $checkindate = $_POST['checkindate'];
     $checkoutdate = $_POST['checkoutdate'];
@@ -29,6 +29,10 @@ if (!empty($_POST)) {
 
     //validate user input
     $valid = true;
+    if(empty($user)) {
+        $userError = 'Please choose a user';
+        $valid = false;
+    }
     if(empty($room)) {
         $roomError = 'Please choose a room';
         $valid = false;
@@ -56,7 +60,7 @@ if (!empty($_POST)) {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "INSERT INTO bookings (bookinguserid, bookingroomid, checkindate, checkoutdate, price, travelers)values(?,?,?,?,?,?)";
         $q = $pdo->prepare($sql);
-        $q->execute(array($id,$room,$checkindate,$checkoutdate,$price,$travelers));
+        $q->execute(array($user,$room,$checkindate,$checkoutdate,$price,$travelers));
         Database::disconnect();
         header("Location: bookings.php");
     }

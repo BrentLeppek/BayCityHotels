@@ -36,6 +36,20 @@ Database::disconnect();
       </div>
 
       <form  class="form-horizontal" action="opinsertbooking.php" method="post">
+      <div class="control-group">
+          <label class="control-label">User</label>
+          <div class="controls">
+            <?php
+              $pdo = Database::connect();
+              $sql = 'SELECT * FROM users ORDER BY lname ASC';
+              echo "<select class='form-control' name='user' id='id'>";
+              foreach($pdo->query($sql) as $row) {
+                echo "<option value'" . $row['id'] . " '> " . $row['fname'] . " " .  $row['lname'] . "</option>";
+              }
+              echo "</select>";
+              Database::disconnect();
+            ?> 
+        </div>  
         <div class="control-group">
           <label class="control-label">Room</label>
           <div class="controls">
@@ -44,11 +58,12 @@ Database::disconnect();
               $sql = 'SELECT * FROM rooms ORDER BY roomname ASC';
               echo "<select class='form-control' name='room' id='id'>";
               foreach($pdo->query($sql) as $row) {
-                echo "<option value'" . $row['id'] . " '> " . $row['roomname'] .  " capacity: " .  $row['capacity'] . "</option>";
+                echo "<option value'" . $row['id'] . " '> " . $row['roomname'] .  " capacity: " .  $row['roomcapacity'] . "</option>";
               }
               echo "</select>";
               Database::disconnect();
-            ?>      
+            ?>
+          </div>       
           <div class="control-group <?php echo !empty($checkindateError)?'error':'';?>">
             <label class="control-label">Check In Date</label>
             <div class="controls">
