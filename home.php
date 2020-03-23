@@ -30,19 +30,6 @@ Database::disconnect();
 
 <body>
 
-    <?php
-    $pdo = Database::connect();
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "SELECT fname, lname FROM users WHERE id = ?";
-    $q = $pdo->prepare($sql);
-    $q->execute(array($sql));
-    $data = $q->fetch(PDO::FETCH_ASSOC);
-    Database::disconnect();
-    
-    //echo "<h1>Welcome " . $fname . " " . $lname . "</h1>";
-
-    ?>
-
     <div class="text-center">
         <a class="btn btn-success" href="room_create.php">Create Room</a> <br />
         <a class="btn btn-primary" href="room_view.php">View Rooms</a> <br />
