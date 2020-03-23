@@ -37,7 +37,7 @@ Database::disconnect();
                         <h3>Create a Room to Rent</h3>
                     </div>
              
-                    <form class="form-horizontal" action="operations/insertroom.php" method="post">
+                    <form class="form-horizontal" action="opinsertroom.php" method="post">
                       <div class="control-group <?php echo !empty($nameError)?'error':'';?>">
                         <label class="control-label">Name</label>
                         <div class="controls">

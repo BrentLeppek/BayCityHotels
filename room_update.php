@@ -7,6 +7,9 @@
     }
     
     require '../database/database.php';
+
+    $id = $_GET['id'];
+    echo $id;
     
 ?>
 
@@ -27,7 +30,7 @@
                         <h3>Update a Room</h3>
                     </div>
              
-                    <form class="form-horizontal" action="operations/updateroom.php" method="post">
+                    <form class="form-horizontal" action="opupdateroom.php" method="post">
                       <div class="control-group <?php echo !empty($nameError)?'error':'';?>">
                         <label class="control-label">Name</label>
                         <div class="controls">
@@ -66,7 +69,7 @@
                       </div>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-success">Update</button>
-                          <a class="btn" href="home.php">Back</a>
+                          <a class="btn" href="room_view.php">Back</a>
                         </div>
                     </form>
                 </div>

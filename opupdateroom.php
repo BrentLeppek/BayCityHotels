@@ -10,7 +10,7 @@ require '../database/database.php';
 
 $id = $_GET['id'];
 
-if ( !empty($_POST)) { // if $_POST filled then process the form
+if (!empty($_POST)) { // if $_POST filled then process the form
 
 
 	// initialize user input validation variables
@@ -51,9 +51,9 @@ if ( !empty($_POST)) { // if $_POST filled then process the form
 	
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "UPDATE rooms  set roomname = ?, roomphone = ?, roomaddress = ?, roomcapacity = ?";
+		$sql = "UPDATE rooms set roomname = ?, roomphone = ?, roomaddress = ?, roomcapacity = ? WHERE id = ?";
 		$q = $pdo->prepare($sql);
-		$q->execute(array($roomname, $roomphone, $roomaddress, $roomcapacity);
+		$q->execute(array($roomname, $roomphone, $roomaddress, $roomcapacity, $id));
 		Database::disconnect();
 		header("Location: room_view.php");
 
