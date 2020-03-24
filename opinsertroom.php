@@ -21,8 +21,8 @@ if ( !empty($_POST)) {
 	$roomimage = $_FILES['roomimage']['name'];
 	$tmpName  = $_FILES['roomimage']['tmp_name'];
 	$fileSize = $_FILES['roomimage']['size'];
-	$fileType = $_FILES['roomimage']['type'];
-	$content = file_get_contents($tmpName);
+	$filetype = $_FILES['roomimage']['type'];
+	$filecontent = file_get_contents($tmpName);
 	
 	// initialize $_POST variables
 	$name = $_POST['roomname'];
@@ -68,9 +68,9 @@ if ( !empty($_POST)) {
 	if ($valid) {
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "INSERT INTO rooms (roomname, roomphone, roomaddress, roomcapacity, roomimage, filecontent) values(?, ?, ?, ?, ?, ?)";
+		$sql = "INSERT INTO rooms (roomname, roomphone, roomaddress, roomcapacity, filecontent, filetype) values(?, ?, ?, ?, ?, ?)";
 		$q = $pdo->prepare($sql);
-		$q->execute(array($name,$phone,$address,$capacity, $roomimage, $filecontent));
+		$q->execute(array($name,$phone,$address,$capacity, $filecontent, $filetype));
 		Database::disconnect();
 		header("Location: room_view.php");
 	}

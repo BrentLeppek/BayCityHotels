@@ -72,7 +72,7 @@ Database::disconnect();
 					    <div class="controls ">
 					    <?php 
 					    if ($data['filesize'] > 0) 
-						    echo '<img  height=5%; width=15%; src="data: filetype;base64,' . 
+						    echo '<img  height=5%; width=15%; src="data:"' . $data['filetype'].'";base64,' . 
 							base64_encode( $data['filecontent'] ) . '" />'; 
 					    else 
 						    echo 'No photo on file.';

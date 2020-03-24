@@ -32,7 +32,7 @@ if (!empty($_POST)) { // if $_POST filled then process the form
 	$tmpName  = $_FILES['roomimage']['tmp_name'];
 	$filecontent = file_get_contents($tmpName);
 	$fileSize = $_FILES['roomimage']['size'];
-	$fileType = $_FILES['roomimage']['type'];
+	$filetype = $_FILES['roomimage']['type'];
 	
 
 	// validate user input
@@ -75,9 +75,9 @@ if (!empty($_POST)) { // if $_POST filled then process the form
 	
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "UPDATE rooms set roomname = ?, roomphone = ?, roomaddress = ?, roomcapacity = ?, roomimage = ?, filecontent = ? WHERE id = ?";
+		$sql = "UPDATE rooms set roomname = ?, roomphone = ?, roomaddress = ?, roomcapacity = ?, filecontent = ?, filetype = ? WHERE id = ?";
 		$q = $pdo->prepare($sql);
-		$q->execute(array($roomname, $roomphone, $roomaddress, $roomcapacity, $id, $roomimage, $filecontent));
+		$q->execute(array($roomname, $roomphone, $roomaddress, $roomcapacity, $id, $filecontent, $filetype));
 		Database::disconnect();
 		header("Location: room_view.php");
 
