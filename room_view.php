@@ -24,7 +24,7 @@
                     <tbody>
                         <?php include '../database/database.php'; 
                             $pdo = Database::connect();
-                            $sql = 'SELECT * FROM rooms ORDER BY roomname DESC';
+                            $sql = 'SELECT * FROM rooms ORDER BY roomname ASC';
                             foreach($pdo->query($sql) as $row) {
                                 echo '<tr>';
                                 echo '<td>'. $row['roomname'] . '</td>';
@@ -32,8 +32,9 @@
                                 echo '<td>'. $row['roomaddress'] . '</td>';
                                 echo '<td>'. $row['roomcapacity'] . '</td>';
                                 echo '<td width=250>';
-                                echo '<a class="btn btn-secondary" href=room_update.php?id='.$row['id'].'">Update</a>';
-                                echo '<a class="btn btn-light" href=room_delete.php?id='.$row['id'].'">Delete</a>';  
+                                echo '<a class="btn btn-success" href=room_read.php?id='.$row['id'].'>View</a>';
+                                echo '<a class="btn btn-secondary" href=room_update.php?id='.$row['id'].'>Update</a>';
+                                echo '<a class="btn btn-light" href=room_delete.php?id='.$row['id'].'>Delete</a>';  
                                 echo '</td>';
                                 echo '</tr>';
                             }

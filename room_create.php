@@ -74,6 +74,13 @@ Database::disconnect();
                             <?php endif;?>
                         </div>
                       </div>
+                      <div class="control-group <?php echo !empty($roomimageError)?'error':'';?>">
+					    <label class="control-label">Room Image</label>
+					    <div class="controls">
+						    <input type="hidden" name="MAX_FILE_SIZE" value="16000000">
+						    <input name="roomimage" type="file" id="roomimage">	
+					    </div>
+				      </div>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-success">Create</button>
                           <a class="btn" href="home.php">Back</a>

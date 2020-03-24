@@ -63,7 +63,7 @@ body {
 				</div>
 
 				<p>Bay City Rooms is a platfrom to view rooms for rent, and provide rooms for rent in the city of Bay City. </p>
-
+        <a href="https://github.com/BrentLeppek/BayCityHotels"> GitHub </a>
 				
 			</form>
             

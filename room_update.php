@@ -29,7 +29,7 @@
                         <h3>Update a Room</h3>
                     </div>
              
-                    <form class="form-horizontal" action="opupdateroom.php" method="post">
+                    <form class="form-horizontal" action="opupdateroom.php?id=<?php echo $id?>" method="post">
                       <div class="control-group <?php echo !empty($nameError)?'error':'';?>">
                         <label class="control-label">Name</label>
                         <div class="controls">
@@ -66,6 +66,13 @@
                             <?php endif;?>
                         </div>
                       </div>
+                      <div class="control-group <?php echo !empty($roomimageError)?'error':'';?>">
+					    <label class="control-label">Room Image</label>
+					    <div class="controls">
+						    <input type="hidden" name="MAX_FILE_SIZE" value="16000000">
+						    <input name="roomimage" type="file" id="roomimage">	
+					    </div>
+				      </div>
                       <div class="form-actions">
                           <button type="submit" class="btn btn-success">Update</button>
                           <a class="btn" href="room_view.php">Back</a>

@@ -18,12 +18,21 @@ if (!empty($_POST)) { // if $_POST filled then process the form
 	$roomphoneError = null;
 	$roomaddressError = null;
 	$roomcapacityError = null;
+	$roomimageError = null;
 	
 	// initialize $_POST variables
 	$roomname = $_POST['roomname'];
 	$roomphone = $_POST['roomphone'];
 	$roomaddress = $_POST['roomaddress'];
 	$roomcapacity = $_POST['roomcapacity'];
+	$roomimage = $_POST['roomimage'];
+
+	//initalize $_FILES variables
+	$roomimage = $_FILES['roomimage']['name'];
+	$tmpName  = $_FILES['roomimage']['tmp_name'];
+	$filecontent = file_get_contents($tmpName);
+	$fileSize = $_FILES['roomimage']['size'];
+	$fileType = $_FILES['roomimage']['type'];
 	
 
 	// validate user input
@@ -46,14 +55,29 @@ if (!empty($_POST)) { // if $_POST filled then process the form
 		$roomcapacityError = 'Please enter Mobile Number (or "none")';
 		$valid = false;
 	}
+
+	//restrict types of files for upload
+	$types = array('image/jpeg','image/gif','image/png');
+	if($filesize > 0) {
+		if(in_array($_FILES['userfile']['type'], $types)) {
+		}
+		else {
+			$filename = null;
+			$filetype = null;
+			$filesize = null;
+			$filecontent = null;
+			$pictureError = 'improper file type';
+			$valid=false;
+		}	
+	}	
 	
 	if ($valid) { // if valid user input update the database
 	
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "UPDATE rooms set roomname = ?, roomphone = ?, roomaddress = ?, roomcapacity = ? WHERE id = ?";
+		$sql = "UPDATE rooms set roomname = ?, roomphone = ?, roomaddress = ?, roomcapacity = ?, roomimage = ?, filecontent = ? WHERE id = ?";
 		$q = $pdo->prepare($sql);
-		$q->execute(array($roomname, $roomphone, $roomaddress, $roomcapacity, $id));
+		$q->execute(array($roomname, $roomphone, $roomaddress, $roomcapacity, $id, $roomimage, $filecontent));
 		Database::disconnect();
 		header("Location: room_view.php");
 
