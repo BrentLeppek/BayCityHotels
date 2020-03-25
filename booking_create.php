@@ -42,7 +42,7 @@ Database::disconnect();
             <?php
               $pdo = Database::connect();
               $sql = 'SELECT * FROM users ORDER BY lname ASC';
-              echo "<select class='form-control' name='user' id='id'>";
+              echo "<select class='form-control' name='user' id='user_id'>";
               foreach($pdo->query($sql) as $row) {
                 echo "<option value'" . $row['id'] . " '> " . $row['fname'] . " " .  $row['lname'] . "</option>";
               }
@@ -56,7 +56,7 @@ Database::disconnect();
             <?php
               $pdo = Database::connect();
               $sql = 'SELECT * FROM rooms ORDER BY roomname ASC';
-              echo "<select class='form-control' name='room' id='id'>";
+              echo "<select class='form-control' name='room' id='room_id'>";
               foreach($pdo->query($sql) as $row) {
                 echo "<option value'" . $row['id'] . " '> " . $row['roomname'] .  " capacity: " .  $row['roomcapacity'] . "</option>";
               }

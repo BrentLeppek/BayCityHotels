@@ -1,12 +1,5 @@
 <?php 
 
-session_start();
-if(!isset($_SESSION["users_id"])){ 
-	session_destroy();
-	header('Location: index.php');     
-	exit;
-}
-
 require '../database/database.php';
 
 if (!empty($_POST)) {
@@ -58,7 +51,7 @@ if (!empty($_POST)) {
     if($valid) {
         $pdo = Database::connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "INSERT INTO bookings (bookinguserid, bookingroomid, checkindate, checkoutdate, price, travelers)values(?,?,?,?,?,?)";
+        $sql = "INSERT INTO bookings (bookinguserid, bookingroomid, checkindate, checkoutdate, price, travelers) values(?,?,?,?,?,?)";
         $q = $pdo->prepare($sql);
         $q->execute(array($user,$room,$checkindate,$checkoutdate,$price,$travelers));
         Database::disconnect();
