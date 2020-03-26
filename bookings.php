@@ -40,7 +40,7 @@
                                 echo '<td>'. $row['checkoutdate'] . '</td>';
                                 echo '<td>'. $row['price'] . '</td>';
                                 echo '<td>'. $row['travelers'] . '</td>';
-                                echo '<td>'. $row['user'] . '</td>';
+                                echo '<td>'. $row['lname'] . '</td>';
                                 echo '<td width=250>';
                                 echo '<a class="btn btn-secondary" href=booking_update.php?id='.$row['id'].'">Update</a>';
                                 echo '<a class="btn btn-light" href=booking_delete.php?id='.$row['id'].'">Delete</a>';  

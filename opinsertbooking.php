@@ -1,5 +1,12 @@
 <?php 
 
+session_start();
+if(!isset($_SESSION["users_id"])){ 
+	session_destroy();
+	header('Location: index.php');     
+	exit;
+}
+
 require '../database/database.php';
 
 if (!empty($_POST)) {
