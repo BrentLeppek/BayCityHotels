@@ -77,7 +77,7 @@ if (!empty($_POST)) { // if $_POST filled then process the form
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql = "UPDATE rooms set roomname = ?, roomphone = ?, roomaddress = ?, roomcapacity = ?, filecontent = ?, filetype = ? WHERE id = ?";
 		$q = $pdo->prepare($sql);
-		$q->execute(array($roomname, $roomphone, $roomaddress, $roomcapacity, $id, $filecontent, $filetype));
+		$q->execute(array($roomname, $roomphone, $roomaddress, $roomcapacity, $filecontent, $filetype, $id));
 		Database::disconnect();
 		header("Location: room_view.php");
 

@@ -1,8 +1,11 @@
-<?php 
-
+<?php
+	
 require '../database/database.php';
 
-if (!empty($_POST)) {
+$id = $_GET['id'];
+
+if (!empty($_POST)) { // if $_POST filled then process the form
+
 
     //initalize input validation
     $roomError = null;
@@ -11,7 +14,7 @@ if (!empty($_POST)) {
     $checkoutdateError = null;
     $priceError = null;
     $travelersError = null;
-
+	
     //$_POST variables
     $user = $_POST['user'];
     $room = $_POST['room'];
@@ -19,7 +22,7 @@ if (!empty($_POST)) {
     $checkoutdate = $_POST['checkoutdate'];
     $price = $_POST['price'];
     $travelers = $_POST['travelers'];
-
+	
     //validate user input
     $valid = true;
     if(empty($user)) {
@@ -46,15 +49,16 @@ if (!empty($_POST)) {
         $travelersError = 'Please select how many travelers are staying';
         $valid = false;
     }
-
-    //insert data
-    if($valid) {
-        $pdo = Database::connect();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql = "INSERT INTO bookings (bookinguserid, bookingroomid, checkindate, checkoutdate, price, travelers) values(?,?,?,?,?,?)";
-        $q = $pdo->prepare($sql);
-        $q->execute(array($user,$room,$checkindate,$checkoutdate,$price,$travelers));
-        Database::disconnect();
-        header("Location: bookings.php");
+	
+	if ($valid) { // if valid user input update the database
+	
+		$pdo = Database::connect();
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$sql = "UPDATE bookings set bookinguserid = ?, bookingroomid = ?, checkindate = ?, checkoutdate = ?, price = ?, travelers = ? WHERE bookingid = ?";
+		$q = $pdo->prepare($sql);
+		$q->execute(array($user, $room, $checkindate, $checkoutdate, $price, $travelers, $id));
+		Database::disconnect();
+		header("Location: bookings.php");
     }
 }
+?>

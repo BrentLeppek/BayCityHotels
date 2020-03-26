@@ -42,8 +42,9 @@
                                 echo '<td>'. $row['travelers'] . '</td>';
                                 echo '<td>'. $row['lname'] . '</td>';
                                 echo '<td width=250>';
-                                echo '<a class="btn btn-secondary" href=booking_update.php?id='.$row['id'].'">Update</a>';
-                                echo '<a class="btn btn-light" href=booking_delete.php?id='.$row['id'].'">Delete</a>';  
+                                echo '<a class="btn btn-success" href=booking_view.php?id='.$row['bookingid'].'>View</a>'; 
+                                echo '<a class="btn btn-secondary" href=booking_update.php?id='.$row['bookingid'].'>Update</a>';
+                                echo '<a class="btn btn-light" href=booking_delete.php?id='.$row['bookingid'].'>Delete</a>';  
                                 echo '</td>';
                                 echo '</tr>';
                             }
